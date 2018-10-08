@@ -56,24 +56,72 @@ static struct file_operations fops =
 
 static int __init crypto_init(void)
 {
-    majorNumber = register_chrdev(0, DEVICE_NAME, &chardev_fops);
+    majorNumber = register_chrdev(0, DEVICE_NAME, &fops);
 
     if (majorNumber < 0) {
-        pr_alert("Registering char device failed with %d\n", majorNumber);
+        pr_alert("Registering char device failed with %d\n", majorNumber); // Criação do major number para o DEVICE FILES
         return majorNumber;
     }
 
+    cryptoClass = class_create(THIS_MODULE, DEVICE_NAME); //Registra a classe do device
+    if (IS_ERR(cryptoClass)){                // Check for error and clean up if there is
+      unregister_chrdev(majorNumber, DEVICE_NAME);
+      printk(KERN_ALERT "Failed to register device class\n");
+      return PTR_ERR(cryptoClass);          // Correct way to return an error on a pointer
+    }
+
+    cryptoDevice = device_create(cryptoClass, NULL, MKDEV(majorNumber, 0), NULL, DEVICE_NAME);
+    if (IS_ERR(cryptoDevice)){               // Clean up if there is an error
+        class_destroy(cryptoClass);           // Repeated code but the alternative is goto statements
+        unregister_chrdev(majorNumber, DEVICE_NAME);
+        printk(KERN_ALERT "Failed to create the device\n");
+        return PTR_ERR(cryptoDevice);
+    }
 
     printk(KERN_INFO "CryptoModule: modulo crypto inicializado com a chave: %s.\n", key);
+    return 0;
 }
 
 static void __exit crypto_exit(void)
 {
-    //device_destroy(cryptoClass, MKDEV(majorNumber, 0)); // remove the device
-    //class_unregister(cryptoClass);                      // unregister the device class
-    //class_destroy(cryptoClass);                         // remove the device class
-    //unregister_chrdev(majorNumber, DEVICE_NAME);         // unregister the major number
+    device_destroy(cryptoClass, MKDEV(majorNumber, 0)); // remove the device
+    class_unregister(cryptoClass);                      // unregister the device class
+    class_destroy(cryptoClass);                         // remove the device class
+    unregister_chrdev(majorNumber, DEVICE_NAME);         // unregister the major number
     printk(KERN_INFO "CryptoModule: modulo crypto encerrado com sucesso!\n");
+}
+
+static int dev_open(struct inode *inodep, struct file *filep){
+   numberOpens++;
+   printk(KERN_INFO "CryptoModule: Device has been opened %d time(s)\n", numberOpens);
+   return 0;
+}
+
+static ssize_t dev_read(struct file *filep, char *buffer, size_t len, loff_t *offset){
+   int error_count = 0;
+   // copy_to_user has the format ( * to, *from, size) and returns 0 on success
+   error_count = copy_to_user(buffer, message, size_of_message);
+ 
+   if (error_count==0){            // if true then have success
+      printk(KERN_INFO "CryptoModule: Enviou %d caracteres para o usuario\n", size_of_message);
+      return (size_of_message=0);  // clear the position to the start and return 0
+   }
+   else {
+      printk(KERN_INFO "CryptoModule: Falhou em mandar %d caracteres para o usuario\n", error_count);
+      return -EFAULT;              // Failed -- return a bad address message (i.e. -14)
+   }
+}
+
+static ssize_t dev_write(struct file *filep, const char *buffer, size_t len, loff_t *offset){
+   sprintf(message, "%s(%zu letters)", buffer, len);   // appending received string with its length
+   size_of_message = strlen(message);                 // store the length of the stored message
+   printk(KERN_INFO "CryptoModule: Recebeu %zu caracteres do usuario\n", len);
+   return len;
+}
+
+static int dev_release(struct inode *inodep, struct file *filep){
+   printk(KERN_INFO "CryptoModule: O Device fechou com sucesso\n");
+   return 0;
 }
 
 module_init(crypto_init);
