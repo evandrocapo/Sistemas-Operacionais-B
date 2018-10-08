@@ -57,7 +57,6 @@ static struct file_operations fops =
 static int __init crypto_init(void)
 {
     majorNumber = register_chrdev(0, DEVICE_NAME, &fops);
-
     if (majorNumber < 0) {
         pr_alert("Registering char device failed with %d\n", majorNumber); // Criação do major number para o DEVICE FILES
         return majorNumber;
@@ -70,7 +69,7 @@ static int __init crypto_init(void)
       return PTR_ERR(cryptoClass);          // Correct way to return an error on a pointer
     }
 
-    cryptoDevice = device_create(cryptoClass, NULL, MKDEV(majorNumber, 0), NULL, DEVICE_NAME);
+    cryptoDevice = device_create(cryptoClass, NULL, MKDEV(majorNumber, 0), NULL, DEVICE_NAME); //Registra a device do driver
     if (IS_ERR(cryptoDevice)){               // Clean up if there is an error
         class_destroy(cryptoClass);           // Repeated code but the alternative is goto statements
         unregister_chrdev(majorNumber, DEVICE_NAME);
