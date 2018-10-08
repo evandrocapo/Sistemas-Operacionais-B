@@ -34,7 +34,6 @@ static int dev_open(struct inode *, struct file *);
 static int dev_release(struct inode *, struct file *);
 static ssize_t dev_read(struct file *, char *, size_t, loff_t *);
 static ssize_t dev_write(struct file *, const char *, size_t, loff_t *);
-static void my_test(void);
 
 /** @brief Devices are represented as file structure in the kernel. The file_operations structure from
  *  /linux/fs.h lists the callback functions that you wish to associated with your file operations
@@ -57,6 +56,14 @@ static struct file_operations fops =
 
 static int __init crypto_init(void)
 {
+    majorNumber = register_chrdev(0, DEVICE_NAME, &chardev_fops);
+
+    if (majorNumber < 0) {
+        pr_alert("Registering char device failed with %d\n", majorNumber);
+        return majorNumber;
+    }
+
+
     printk(KERN_INFO "CryptoModule: modulo crypto inicializado com a chave: %s.\n", key);
 }
 
