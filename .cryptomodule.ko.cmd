@@ -1,0 +1,1 @@
+cmd_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.ko /home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o /home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.mod.o ;  true
