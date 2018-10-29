@@ -1,8 +1,8 @@
-cmd_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o := gcc -Wp,-MD,/home/richbitch/Desktop/git/Sistemas-Operacionais-B/.cryptomodule.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/5/include -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -DRETPOLINE -fno-delete-null-pointer-checks -O2 --param=allow-store-data-races=0 -DCC_HAVE_ASM_GOTO -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -gdwarf-4 -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DMODULE  -DKBUILD_BASENAME='"cryptomodule"'  -DKBUILD_MODNAME='"cryptomodule"' -c -o /home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o /home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.c
+cmd_/home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o := gcc -Wp,-MD,/home/richbitch/Desktop/git/crypto-device-kernel/.cryptomodule.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/5/include -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -DCONFIG_X86_X32_ABI -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -DRETPOLINE -fno-delete-null-pointer-checks -O2 --param=allow-store-data-races=0 -DCC_HAVE_ASM_GOTO -Wframe-larger-than=1024 -fstack-protector-strong -Wno-unused-but-set-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -g -gdwarf-4 -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DMODULE  -DKBUILD_BASENAME='"cryptomodule"'  -DKBUILD_MODNAME='"cryptomodule"' -c -o /home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o /home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.c
 
-source_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o := /home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.c
+source_/home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o := /home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.c
 
-deps_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o := \
+deps_/home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o := \
   include/linux/init.h \
     $(wildcard include/config/strict/kernel/rwx.h) \
     $(wildcard include/config/strict/module/rwx.h) \
@@ -903,7 +903,81 @@ deps_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o := \
   include/linux/vm_event_item.h \
     $(wildcard include/config/memory/balloon.h) \
     $(wildcard include/config/balloon/compaction.h) \
+  include/crypto/internal/hash.h \
+  include/crypto/algapi.h \
+    $(wildcard include/config/have/efficient/unaligned/access.h) \
+  include/linux/skbuff.h \
+    $(wildcard include/config/nf/conntrack.h) \
+    $(wildcard include/config/bridge/netfilter.h) \
+    $(wildcard include/config/xfrm.h) \
+    $(wildcard include/config/ipv6/ndisc/nodetype.h) \
+    $(wildcard include/config/net/switchdev.h) \
+    $(wildcard include/config/net/cls/act.h) \
+    $(wildcard include/config/net/sched.h) \
+    $(wildcard include/config/net/rx/busy/poll.h) \
+    $(wildcard include/config/xps.h) \
+    $(wildcard include/config/network/secmark.h) \
+    $(wildcard include/config/network/phy/timestamping.h) \
+    $(wildcard include/config/netfilter/xt/target/trace.h) \
+    $(wildcard include/config/nf/tables.h) \
+    $(wildcard include/config/ip/vs.h) \
+  include/linux/socket.h \
+  arch/x86/include/uapi/asm/socket.h \
+  include/uapi/asm-generic/socket.h \
+  arch/x86/include/uapi/asm/sockios.h \
+  include/uapi/asm-generic/sockios.h \
+  include/uapi/linux/sockios.h \
+  include/linux/uio.h \
+  include/uapi/linux/uio.h \
+  include/uapi/linux/socket.h \
+  include/linux/net.h \
+  include/linux/random.h \
+    $(wildcard include/config/gcc/plugin/latent/entropy.h) \
+    $(wildcard include/config/arch/random.h) \
+  include/linux/once.h \
+  include/uapi/linux/random.h \
+  include/linux/irqnr.h \
+  include/uapi/linux/irqnr.h \
+  arch/x86/include/asm/archrandom.h \
+  include/uapi/linux/net.h \
+  include/linux/textsearch.h \
+  include/net/checksum.h \
+  arch/x86/include/asm/checksum.h \
+  arch/x86/include/asm/checksum_64.h \
+  include/linux/dma-mapping.h \
+    $(wildcard include/config/have/generic/dma/coherent.h) \
+    $(wildcard include/config/has/dma.h) \
+    $(wildcard include/config/arch/has/dma/set/coherent/mask.h) \
+    $(wildcard include/config/need/dma/map/state.h) \
+    $(wildcard include/config/dma/api/debug.h) \
+  include/linux/sizes.h \
+  include/linux/dma-debug.h \
+  include/linux/dma-direction.h \
+  arch/x86/include/asm/dma-mapping.h \
+    $(wildcard include/config/isa.h) \
+    $(wildcard include/config/x86/dma/remap.h) \
+  arch/x86/include/asm/swiotlb.h \
+    $(wildcard include/config/swiotlb.h) \
+  include/linux/swiotlb.h \
+  include/linux/dma-contiguous.h \
+  include/linux/netdev_features.h \
+  include/linux/sched/clock.h \
+    $(wildcard include/config/have/unstable/sched/clock.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+  include/net/flow_dissector.h \
+  include/linux/in6.h \
+  include/uapi/linux/in6.h \
+  include/uapi/linux/libc-compat.h \
+    $(wildcard include/config/data.h) \
+  include/uapi/linux/if_ether.h \
+  include/linux/splice.h \
+  include/linux/pipe_fs_i.h \
+  include/uapi/linux/if_packet.h \
+  include/net/flow.h \
+  include/crypto/hash.h \
+  include/crypto/internal/skcipher.h \
+  include/crypto/skcipher.h \
 
-/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o: $(deps_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o)
+/home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o: $(deps_/home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o)
 
-$(deps_/home/richbitch/Desktop/git/Sistemas-Operacionais-B/cryptomodule.o):
+$(deps_/home/richbitch/Desktop/git/crypto-device-kernel/cryptomodule.o):
